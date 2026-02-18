@@ -30,7 +30,10 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { uiState ->
-                    binding.tvRolledDice.text = uiState.rolledDiceValue?.toString() ?: "Jogue o dado"
+                    // id do drawable de dado
+                    uiState.rolledDice1ImgRes?.let { imgRes ->
+                        binding.ivRolledDice1.setImageResource(imgRes)
+                    }
                 }
             }
         }

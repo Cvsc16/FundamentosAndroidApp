@@ -36,9 +36,12 @@ class SecondFragment : Fragment() {
         val firstArgument = arguments?.getStringArray("first_arg") ?: arrayOf()
 
         lifecycleScope.launch {
-                viewModel.uiState.collect { uiState ->
-                    binding.tvSecondFragment.text = uiState.rolledDiceValue.toString()
+            viewModel.uiState.collect { uiState ->
+                // id do drawable de dado
+                uiState.rolledDice3ImgRes?.let { imgRes ->
+                    binding.ivRolledDice3.setImageResource(imgRes)
                 }
+            }
         }
 
         Log.d("SecondFragment", "Argument: ${firstArgument.joinToString()}")
