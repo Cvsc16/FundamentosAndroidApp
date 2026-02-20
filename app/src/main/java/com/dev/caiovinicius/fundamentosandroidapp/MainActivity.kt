@@ -3,7 +3,9 @@ package com.dev.caiovinicius.fundamentosandroidapp
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.os.bundleOf
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -12,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.NavHostFragment
 import com.dev.caiovinicius.fundamentosandroidapp.databinding.ActivityMainBinding
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -59,7 +62,29 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnRollDice.setOnClickListener {
-            viewModel.rollDice()
+//            viewModel.rollDice()
+//            AlertDialog.Builder(this@MainActivity)
+//                .setTitle("Jogar os dados")
+//                .setMessage("Deseja realmente jogar os dados?")
+//                .setIcon(android.R.drawable.ic_dialog_alert)
+//                .setPositiveButton("Sim") { _, _ ->
+//                    viewModel.rollDice()
+//                }
+//                .setPositiveButtonIcon(
+//                    AppCompatResources.getDrawable(
+//                        this@MainActivity,
+//                        R.drawable.ic_dice_unknown
+//                    )
+//                )
+//                .setNegativeButton("Não", null)
+//                .setCancelable(false)
+//                .create()
+//                .show()
+
+            //            ConfirmDialogFragment().show(supportFragmentManager, "confirm_dialog_fragment")
+
+            // ConfirmDialogFragment().show(supportFragmentManager, "confirm_dialog_fragment")
+            ConfirmBottomSheetDialogFragment().show(supportFragmentManager, "confirm_bottom_sheet_dialog_fragment")
         }
 
         binding.btnNextFragment.setOnClickListener {
