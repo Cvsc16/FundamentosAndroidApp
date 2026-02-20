@@ -69,11 +69,16 @@ class MainActivity : AppCompatActivity() {
                         navController.navigate(R.id.action_firstFragment_to_secondFragment,
                             bundleOf("first_arg" to arrayOf("1", "2", "3")))
                         binding.btnNextFragment.text =
-                            getString(R.string.voltar_para_o_primeiro_fragment)
+                            getString(R.string.ir_para_lista_jogadas)
                     }
 
                     R.id.secondFragment -> {
-                        navController.popBackStack()
+                        navController.navigate(R.id.action_secondFragment_to_thirdFragment)
+                        binding.btnNextFragment.text = getString(R.string.voltar_para_o_primeiro_fragment)
+                    }
+
+                    R.id.thirdFragment -> {
+                        navController.navigate(R.id.action_thirdFragment_to_firstFragment)
                         binding.btnNextFragment.text = getString(R.string.ir_para_proxima_tela)
                     }
 
