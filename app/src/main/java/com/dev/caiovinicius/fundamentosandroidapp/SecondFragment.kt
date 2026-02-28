@@ -37,7 +37,7 @@ class SecondFragment : Fragment() {
 
         lifecycleScope.launch {
                 viewModel.uiState.collect { uiState ->
-                    binding.tvSecondFragment.text = uiState.rolledDiceValue.toString()
+                    // binding.ivRolledDice1.setImageResource(uiState.dice3ImageRes)
                 }
         }
 

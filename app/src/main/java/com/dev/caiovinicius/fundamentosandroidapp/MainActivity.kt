@@ -30,7 +30,8 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { uiState ->
-                    binding.tvRolledDice.text = uiState.rolledDiceValue?.toString() ?: "Jogue o dado"
+                    // id do drawable de dado
+                    // binding.ivRolledDice1.setImageResource(uiState.dice1ImageRes)
                 }
             }
         }
@@ -52,8 +53,10 @@ class MainActivity : AppCompatActivity() {
             navController.currentDestination?.id.let {
                 when (it) {
                     R.id.firstFragment -> {
-                        navController.navigate(R.id.action_firstFragment_to_secondFragment,
-                            bundleOf("first_arg" to arrayOf("1", "2", "3")))
+                        navController.navigate(
+                            R.id.action_firstFragment_to_secondFragment,
+                            bundleOf("first_arg" to arrayOf("1", "2", "3"))
+                        )
                         binding.btnNextFragment.text =
                             getString(R.string.voltar_para_o_primeiro_fragment)
                     }
